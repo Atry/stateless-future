@@ -2,7 +2,7 @@ organization := "com.qifun"
 
 name := "stateless-future"
 
-libraryDependencies += scalaOrganization.value % "scala-reflect" % scalaVersion.value
+libraryDependencies += scalaOrganization.value % "scala-reflect" % scalaVersion.value % Provided
 
 libraryDependencies += "junit" % "junit-dep" % "4.10" % "test"
 
