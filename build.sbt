@@ -2,9 +2,7 @@ organization := "com.qifun"
 
 name := "stateless-future"
 
-libraryDependencies <+= (scalaVersion) { sv =>
-  "org.scala-lang" % "scala-reflect" % sv
-}
+libraryDependencies += scalaOrganization.value % "scala-reflect" % scalaVersion.value
 
 libraryDependencies += "junit" % "junit-dep" % "4.10" % "test"
 
@@ -12,8 +10,8 @@ libraryDependencies += "com.novocode" % "junit-interface" % "0.10" % "test"
 
 scalacOptions ++= Seq("-optimize", "-unchecked", "-Xlint", "-feature")
 
-scalacOptions <++= (scalaVersion) map { sv =>
-  if (sv.startsWith("2.10.")) {
+scalacOptions ++= {
+  if (scalaVersion.value.startsWith("2.10.")) {
     Seq("-deprecation") // Fully compatible with 2.10.x 
   } else {
     Seq() // May use deprecated API in 2.11.x
